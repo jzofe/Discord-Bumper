@@ -8,11 +8,17 @@ if [ "$OS" == "Linux" ] && [ -f /etc/lsb-release ]; then
     echo "OS : Ubuntu"
     sudo apt-get install -y npm
     sudo npm i cfonts -g
+    
 elif [ "$OS" == "Linux" ] && [ -f /etc/redhat-release ]; then
     echo "OS : CentOS"
     sudo yum install -y npm
     sudo npm i cfonts -g
-
+    
+elif [ "$OS" == "Linux" ] && [ -f /etc/arch-release ]; then
+    echo "OS : Arch Linux ."
+    sudo pacman -S npm --noconfirm 
+    sudo npm i cfonts -g 
+    
 elif [ "$OS" == "Android" ]; then
     echo "OS : Termux"
     pkg install npm
